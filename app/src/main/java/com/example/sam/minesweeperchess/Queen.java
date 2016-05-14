@@ -32,8 +32,8 @@ public class Queen extends Piece {
         yIter = yPos;
         int xDiff = prospectiveX - xPos;
         int yDiff = prospectiveY - yPos;
-        xInc = xDiff/Math.abs(xDiff);
-        yInc = yDiff/Math.abs(yDiff);
+        xInc = xDiff == 0 ? 0 : xDiff/Math.abs(xDiff);
+        yInc = yDiff == 0 ? 0 : yDiff/Math.abs(yDiff);
 
         //iterate through every value between here and there, check if square is occupied
         while(xIter != prospectiveX && yIter != prospectiveY){
