@@ -31,23 +31,10 @@ public class Rook extends Piece {
 
         xIter = xPos;
         yIter = yPos;
-        boolean xDecreasing = xPos > prospectiveX;
-        boolean yDecreasing = yPos > prospectiveY;
-
-        //check which direction the bishop is moving
-        if(xDecreasing && (yPos == prospectiveY)){
-            xInc = -1;
-            yInc = 0;
-        }else if(!xDecreasing && (yPos == prospectiveY)){
-            xInc = 1;
-            yInc = 0;
-        }else if(yDecreasing && (xPos == prospectiveX)){
-            xInc = 0;
-            yInc = -1;
-        }else{
-            xInc = 0;
-            yInc = 1;
-        }
+        int xDiff = prospectiveX - xPos;
+        int yDiff = prospectiveY - yPos;
+        xInc = xDiff == 0 ? 0 : xDiff/Math.abs(xDiff);
+        yInc = yDiff == 0 ? 0 : yDiff/Math.abs(yDiff);
 
         //iterate through every value between here and there, check if square is occupied
         while(xIter != prospectiveX && yIter != prospectiveY){
